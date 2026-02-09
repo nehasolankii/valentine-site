@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Will You Be My Valentine? 💖</title>
+
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      cursor: none; /* for heart cursor */
+    }
+
+    /* 💞 Heart Cursor */
+    .cursor-heart {
+      position: fixed;
+      pointer-events: none;
+      font-size: 18px;
+      animation: fade 1s forwards;
+    }
+
+    @keyframes fade {
+      to {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+    }
+
+    .card {
+      background: white;
+      padding: 40px 30px;
+      border-radius: 25px;
+      text-align: center;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+      width: 330px;
+      position: relative;
+      animation: pop 1s ease;
+    }
+
+    /* 📱 Insta-reel style animation */
+    @keyframes pop {
+      0% { transform: scale(0.8); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    h1 {
+      color: #ff4d6d;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: #555;
+      font-size: 16px;
+      margin-bottom: 25px;
+    }
+
+    button {
+      padding: 12px 22px;
+      border: none;
+      border-radius: 30px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    #yes {
+      background: #ff4d6d;
+      color: white;
+      margin-right: 10px;
+    }
+
+    #yes:hover {
+      transform: scale(1.1);
+    }
+
+    #no {
+      background: #ffd6dd;
+      color: #ff4d6d;
+      position: absolute;
+    }
+
+    a {
+      display: block;
+      margin-top: 25px;
+      text-decoration: none;
+      color: #ff4d6d;
+      font-weight: bold;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .hearts span {
+      position: absolute;
+      font-size: 20px;
+      animation: float 5s infinite;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0); opacity: 1; }
+      100% { transform: translateY(-100vh); opacity: 0; }
+    }
+
+    /* 😏 Secret message */
+    .secret {
+      margin-top: 15px;
+      font-size: 12px;
+      color: #aaa;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- 🎶 Background Music -->
+  <audio id="music" loop>
+    <source src="love.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- MAIN CARD -->
+  <div class="card" id="card">
+    <h1>Will you be my Valentine? 💌</h1>
+    <p>You make my world brighter every single day.</p>
+
+    <button id="yes">YES 💖</button>
+    <button id="no">No 🙄</button>
+
+    <a href="notes.html">Read something cute 💌</a>
+
+    <div class="secret" onclick="showSecret()">psst… click me 👀</div>
+  </div>
+
+  <!-- FINAL CARD -->
+  <div class="card hidden" id="final">
+    <h1>YAYYY 💕</h1>
+    <p>
+      I already knew your answer 😌  
+      <br><br>
+      Happy Valentine’s Day, my love.
+    </p>
+    <a href="notes.html">Next ➜ Love Notes 💖</a>
+  </div>
+
+  <div class="hearts"></div>
+
+  <script>
+    const noBtn = document.getElementById("no");
+    const yesBtn = document.getElementById("yes");
+    const card = document.getElementById("card");
+    const final = document.getElementById("final");
+    const hearts = document.querySelector(".hearts");
+    const music = document.getElementById("music");
+
+    // 😏 No button runs away
+    noBtn.addEventListener("mouseover", () => {
+      const x = Math.random() * 200 - 100;
+      const y = Math.random() * 200 - 100;
+      noBtn.style.transform = `translate(${x}px, ${y}px)`;
+    });
+
+    // 💖 Yes click
+    yesBtn.addEventListener("click", () => {
+      card.classList.add("hidden");
+      final.classList.remove("hidden");
+      music.play(); // 🎶 music starts here
+      createHearts();
+    });
+
+    // 💕 Floating hearts
+    function createHearts() {
+      for (let i = 0; i < 30; i++) {
+        const heart = document.createElement("span");
+        heart.innerHTML = "💖";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.animationDuration = Math.random() * 3 + 2 + "s";
+        hearts.appendChild(heart);
+        setTimeout(() => heart.remove(), 5000);
+      }
+    }
+
+    // 💞 Heart cursor
+    document.addEventListener("mousemove", (e) => {
+      const heart = document.createElement("div");
+      heart.className = "cursor-heart";
+      heart.innerHTML = "💗";
+      heart.style.left = e.clientX + "px";
+      heart.style.top = e.clientY + "px";
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 1000);
+    });
+
+    // 😏 Secret message
+    function showSecret() {
+      alert("You’re stuck with me forever 💘");
+    }
+  </script>
+
+</body>
+</html>

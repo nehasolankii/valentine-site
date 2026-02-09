@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Love Notes 💕</title>
+  <style>
+    body {
+      background: linear-gradient(135deg, #ffe6eb, #fff);
+      font-family: 'Segoe UI', sans-serif;
+      text-align: center;
+      padding: 30px;
+    }
+
+    h1 {
+      color: #ff4d6d;
+    }
+
+    .note {
+      background: white;
+      padding: 20px;
+      margin: 15px auto;
+      width: 280px;
+      border-radius: 20px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+      cursor: pointer;
+      transition: 0.4s;
+    }
+
+    .note:hover {
+      transform: scale(1.05);
+    }
+
+    .hidden-text {
+      display: none;
+      margin-top: 10px;
+      color: #555;
+    }
+
+    a {
+      text-decoration: none;
+      color: #ff4d6d;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Tap the notes 💌</h1>
+<p>(each one hides a secret)</p>
+
+<div class="note" onclick="reveal(this)">
+  💖 Why I love you
+  <div class="hidden-text">You make even boring days feel special.</div>
+</div>
+
+<div class="note" onclick="reveal(this)">
+  💘 Something I adore
+  <div class="hidden-text">Your smile fixes everything.</div>
+</div>
+
+<div class="note" onclick="reveal(this)">
+  🥹 A soft confession
+  <div class="hidden-text">You’re my safest place babu and i lovee youuu soo soo much arya</div>
+</div>
+
+<br>
+<a href="memories.html">Next ➜ Our Memories 📸</a>
+
+<script>
+  function reveal(note) {
+    note.querySelector(".hidden-text").style.display = "block";
+  }
+</script>
+
+</body>
+</html>
