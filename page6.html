@@ -75,6 +75,17 @@
       color: white;
       display: none;
     }
+    .back-btn {
+  margin-top: 15px;
+  padding: 10px 30px;
+  font-size: 16px;
+  border-radius: 30px;
+  border: none;
+  background: #ff85a2;
+  color: white;
+  cursor: pointer;
+}
+
   </style>
 </head>
 
@@ -88,6 +99,9 @@
   <button onclick="spinWheel()">Spin 😏</button>
 
   <div class="result" id="result"></div>
+  <a href="index.html" id="backBtn" style="display:none;">
+  <button class="back-btn">Go Back 💌</button>
+</a>
 
   <script>
     let spinning = false;
@@ -117,6 +131,9 @@
         result.innerText = options[choice];
         result.style.display = "block";
         spinning = false;
+        document.getElementById("backBtn").style.display = "inline-block";
+result.style.display = "block";
+
       }, 3000);
     }
   </script>

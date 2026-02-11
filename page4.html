@@ -30,6 +30,26 @@
       color: #555;
       margin-top: 15px;
     }
+    .box {
+  background: white;
+  padding: 40px;
+  border-radius: 30px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+  width: 320px;
+  position: relative;   /* ADD THIS */
+}
+
+.next-btn {
+  margin-top: 20px;
+  padding: 10px 25px;
+  border: none;
+  border-radius: 20px;
+  background: #ff4d6d;
+  color: white;
+  cursor: pointer;
+}
+
+  
   </style>
 </head>
 <body>
@@ -42,6 +62,10 @@
     <p>Happy Valentine’s Day My Love💕</p>
   </div>
 </div>
+<a href="page5.html" id="backBtn" style="display:none;">
+  <button class="next-btn">Next MY LOVE💌</button>
+</a>
+
 
 <script>
   let count = 3;
@@ -58,6 +82,9 @@
       clearInterval(timer);
     }
   }, 1000);
+  finalText.style.display = "block";
+document.getElementById("backBtn").style.display = "inline-block";
+
 </script>
 
 </body>
