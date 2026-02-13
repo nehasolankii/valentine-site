@@ -48,6 +48,9 @@
   color: white;
   cursor: pointer;
 }
+#finalMessage {
+  display: none;
+}
 
   
   </style>
@@ -56,7 +59,7 @@
 
 <div class="box">
   <h1 id="count">3 💗</h1>
-  <div id="finalText">
+  <div id="finalText" style="display:none;">
     <p>You’re my favorite person in the whole world babu.</p>
     <p>I choose you — always , today, tomorrow and forever.</p>
     <p>Happy Valentine’s Day My Love💕</p>
@@ -77,14 +80,16 @@
     if (count > 0) {
       counter.innerHTML = count + " 💗";
     } else {
-      counter.innerHTML = "Surprise 🥹";
-      finalText.style.display = "block";
-      clearInterval(timer);
-    }
-  }, 1000);
+  counter.innerHTML = "Surprise 🥹";
   finalText.style.display = "block";
-document.getElementById("backBtn").style.display = "inline-block";
+  document.getElementById("backBtn").style.display = "inline-block";
+  clearInterval(timer);
+}
+     
+  }, 1000);
+  
 
+ 
 </script>
 
 </body>
